@@ -22,3 +22,21 @@ Some of the instrumentation:
 
 3. Logs - A log is a timestamped record that can be configured to track a wide variety of information. Often times it is used with OpenTelemetry to track trace context. 
 
+
+------
+
+What is OLTP? 
+
+OLTP stands for OpenTelemetry Protocol 
+
+1. It represents the process of encoding, transporting, and delivering telemetry data from sources to collectors to databases. It is a data delivery protocol. 
+
+Import OLTP phrases to know
+
+1. It is stable for traces, metrics and logs 
+2. It is implemented via gRPC and HTTP. 
+3. A client sends a request, and the server replies back
+
+
+
+
