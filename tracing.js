@@ -24,9 +24,6 @@ const { HttpInstrumentation } = require("@opentelemetry/instrumentation-http");
 const {OTLPTraceExporter} = require('@opentelemetry/exporter-trace-otlp-proto');
 const {OTLPMetricExporter} = require('@opentelemetry/exporter-metrics-otlp-proto');
 
-// Metric data not being sent to Jaeger UI, OpenTelemetry docs say prometheus exporter needed to show metric data
-const { PrometheusExporter } = require('@opentelemetry/exporter-prometheus');
-
 
 const sdk = new NodeSDK({
    resource: resourceFromAttributes({
@@ -36,14 +33,8 @@ const sdk = new NodeSDK({
    traceExporter: new OTLPTraceExporter,
 
    metricReader: new PeriodicExportingMetricReader({
-       exporter: new OTLPMetricExporter({
-       url: 'http://localhost:9090/api/v1/otlp', // according to prometheus with oltp docs 
-       
-}),}),
-   /*
-  metricReader: new PrometheusExporter({
-    port: 9464, // from docs (I put ss in my assignment word doc)
-  }),*/
+       exporter: new OTLPMetricExporter(),
+   }),
 
    instrumentations: [
        getNodeAutoInstrumentations(),
