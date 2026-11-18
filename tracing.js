@@ -20,15 +20,19 @@ const { ExpressInstrumentation } = require("opentelemetry-instrumentation-expres
 const { MongoDBInstrumentation } = require("@opentelemetry/instrumentation-mongodb");
 const { HttpInstrumentation } = require("@opentelemetry/instrumentation-http");
 
+// My changes
+const {OTLPTraceExporter} = require('@opentelemetry/exporter-trace-otlp-proto');
+const {OTLPMetricExporter} = require('@opentelemetry/exporter-metrics-otlp-proto');
+
 const sdk = new NodeSDK({
    resource: resourceFromAttributes({
        [ATTR_SERVICE_NAME]: "todo-service"
    }),
 
-   traceExporter: new ConsoleSpanExporter(),
+   traceExporter: new OTLPTraceExporter,
 
    metricReader: new PeriodicExportingMetricReader({
-       exporter: new ConsoleMetricExporter(),
+       exporter: new OTLPMetricExporter(),
    }),
 
    instrumentations: [
