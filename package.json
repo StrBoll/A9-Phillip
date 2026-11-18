@@ -1,0 +1,20 @@
+{
+  "name": "a9-phillip",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StrBoll/A9-Phillip.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StrBoll/A9-Phillip/issues"
+  },
+  "homepage": "https://github.com/StrBoll/A9-Phillip#readme"
+}
